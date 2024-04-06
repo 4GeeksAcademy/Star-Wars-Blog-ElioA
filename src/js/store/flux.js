@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -79,10 +82,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			addToFavorites: (name)=>{
+			addToFavorites: (name,id,link)=>{
 				const store=getStore()
-				const favList= store.favorites
-				setStore({favorites: [...favList,name]})
+				const fav= {name: name, id: id, link:link }
+				setStore({favorites : [...store.favorites, fav]})
+				console.log(store.favorites)
+				
 			},
 
 			removeFromFavorites :(index)=>{
@@ -91,6 +96,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				favList.splice(index,1)
 				setStore({favorites: favList})
 			},
+			favoritesHeart: (name)=>{
+				const store= getStore()
+				const favlist=store.favorites
+				const [hemo,setHemo]=useState(<i className="far fa-heart"></i>)
+				for(let item of favlist){
+					if(item.name== name){setHemo(<i className="fas fa-heart"></i>)}
+					}
+				return hemo
+			}
+
 
 		}
 	};

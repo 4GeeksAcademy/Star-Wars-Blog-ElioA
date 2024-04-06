@@ -15,9 +15,17 @@ export const Single = props => {
 	
 	return (
 		<div className="container">
-			<div className="card" style={{width:"500px", marginLeft:"30%"}}>
+			<div className="d-flex" style={{width:"500px", marginLeft:"30%", marginTop:"30px"}}>
 				<img  className="card-img-top" src={`https://starwars-visualguide.com/assets/img/characters/${theid}.jpg`}/>	
-				<h2>name: {store.singleCharacter?.properties?.name}</h2>
+				<div style={{marginLeft:"20px"}}>
+					<h2>Name: {store.singleCharacter?.properties?.name}</h2>
+					<h4 style={{marginTop:"20px"}}>Gender: {store.singleCharacter?.properties?.gender}</h4>
+					<h4 style={{marginTop:"20px"}}>Birth year: {store.singleCharacter?.properties?.birth_year}</h4>
+					<h4 style={{marginTop:"20px"}}>Height: {store.singleCharacter?.properties?.height}</h4>
+					<h4 style={{marginTop:"20px"}}>Weigth: {store.singleCharacter?.properties?.mass}</h4>
+					<h4 style={{marginTop:"20px"}}>Hair color: {store.singleCharacter?.properties?.hair_color}</h4>
+					<h4 style={{marginTop:"20px"}}>Eye color: {store.singleCharacter?.properties?.eye_color}</h4>
+				</div>
 			</div>
 		</div>
 	);

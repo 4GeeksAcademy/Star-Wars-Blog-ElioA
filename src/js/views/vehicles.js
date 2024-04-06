@@ -15,9 +15,11 @@ export const Vehicles = props => {
 	
 	return (
 		<div className="container">
-			<div className="card" style={{width:"500px", marginLeft:"30%"}}>
-				<img  className="card-img-top" src={`https://starwars-visualguide.com/assets/img/vehicles/${theid}.jpg`}/>	
+			<div className="d-flex" style={{width:"500px", marginLeft:"30%",marginTop:"30px"}}>
+				<img  className="card-img-top" src={`https://starwars-visualguide.com/assets/img/vehicles/${theid}.jpg`}/>
+				<div style={{marginLeft:"20px"}}>
 				<h2>name: {store.singleVehicle?.properties?.name}</h2>
+				</div>	
 			</div>
 		</div>
 	);

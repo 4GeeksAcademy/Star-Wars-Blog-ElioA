@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	
 	const {store , actions}=useContext(Context)
 	console.log(store.favorites)
-	
+	const navigate = useNavigate()
 	
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -14,11 +14,11 @@ export const Navbar = () => {
 				<span className="navbar-brand mb-0 h1" style={{marginLeft:"10px"}}>Home</span>
 			</Link>
 			<div className="nav-item dropdown" style={{marginRight:"50px"}}>
-				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           	 		Dropdown
+				<a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           	 		Favorites {store.favorites.length}
           		</a>
 				<ul className="dropdown-menu">
-            	{store.favorites.length !==0 ? store.favorites.map((item , index)=><li>{item}<i class="fas fa-times-circle" onClick={()=>actions.removeFromFavorites(index)}></i></li>) : <li>add favorites</li>}
+            	{store.favorites.length !==0 ? store.favorites.map((item,index)=><li key={index} className="d-flex"><div onClick={()=>navigate(`/${item.link}/${item.id}`)}>{item.name}</div><i style={{marginLeft:"5px"}} className="fas fa-times-circle" onClick={()=>actions.removeFromFavorites(index)}></i></li>) : <li>add favorites</li>}
 				</ul>
 			</div>
 		</nav>

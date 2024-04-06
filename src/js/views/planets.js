@@ -14,10 +14,18 @@ export const Planets = props => {
 	
 	
 	return (
-		<div className="container">
-			<div className="card" style={{width:"500px", marginLeft:"30%"}}>
-				<img  className="card-img-top" src={`https://starwars-visualguide.com/assets/img/planets/${theid}.jpg`}/>	
-				<h2>name: {store.singlePlanet?.properties?.name}</h2>
+		<div className="d-flex">
+			<img  style={{marginLeft:"30%"}} src={`https://starwars-visualguide.com/assets/img/planets/${theid}.jpg`}/>
+			<div className="d-flex" style={{width:"500px",marginTop:"30px"}}>
+				<div style={{marginLeft:"20px"}}>
+					<h2>Name: {store.singlePlanet?.properties?.name}</h2>
+					<h4 style={{marginTop:"20px"}}>Diameter: {store.singlePlanet?.properties?.diameter}</h4>
+					<h4 style={{marginTop:"20px"}}>Gravity: {store.singlePlanet?.properties?.gravity}</h4>
+					<h4 style={{marginTop:"20px"}}>Population: {store.singlePlanet?.properties?.population}</h4>
+					<h4 style={{marginTop:"20px"}}>Climate: {store.singlePlanet?.properties?.climate}</h4>
+					<h4 style={{marginTop:"20px"}}>Terrain: {store.singlePlanet?.properties?.terrain}</h4>
+					<h4 style={{marginTop:"20px"}}>Surface water: {store.singlePlanet?.properties?.surface_water}</h4>
+				</div>	
 			</div>
 		</div>
 	);
