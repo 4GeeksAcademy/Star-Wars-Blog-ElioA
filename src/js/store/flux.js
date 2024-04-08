@@ -99,11 +99,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favoritesHeart: (name)=>{
 				const store= getStore()
 				const favlist=store.favorites
-				const [hemo,setHemo]=useState(<i className="far fa-heart"></i>)
+				
 				for(let item of favlist){
-					if(item.name== name){setHemo(<i className="fas fa-heart"></i>)}
+					if(item.name== name){return <i className="fas fa-heart"></i>}
 					}
-				return hemo
+				return <i className="far fa-heart"></i>
 			}
 
 

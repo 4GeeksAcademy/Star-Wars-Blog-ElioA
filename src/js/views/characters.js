@@ -14,9 +14,9 @@ export const Single = props => {
 	
 	
 	return (
-		<div className="container">
-			<div className="d-flex" style={{width:"500px", marginLeft:"30%", marginTop:"30px"}}>
-				<img  className="card-img-top" src={`https://starwars-visualguide.com/assets/img/characters/${theid}.jpg`}/>	
+		<div className="d-flex">
+			<img style={{marginLeft:"30%"}} src={`https://starwars-visualguide.com/assets/img/characters/${theid}.jpg`}/>
+			<div className="d-flex" style={{width:"500px", marginTop:"30px"}}>	
 				<div style={{marginLeft:"20px"}}>
 					<h2>Name: {store.singleCharacter?.properties?.name}</h2>
 					<h4 style={{marginTop:"20px"}}>Gender: {store.singleCharacter?.properties?.gender}</h4>

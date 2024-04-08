@@ -18,7 +18,8 @@ export const Navbar = () => {
            	 		Favorites {store.favorites.length}
           		</a>
 				<ul className="dropdown-menu">
-            	{store.favorites.length !==0 ? store.favorites.map((item,index)=><li key={index} className="d-flex"><div onClick={()=>navigate(`/${item.link}/${item.id}`)}>{item.name}</div><i style={{marginLeft:"5px"}} className="fas fa-times-circle" onClick={()=>actions.removeFromFavorites(index)}></i></li>) : <li>add favorites</li>}
+            	{store.favorites.length !==0 ? store.favorites.map((item,index)=><li key={index} className="d-flex">
+					<div style={{color:"blue"}} onClick={()=>navigate(`/${item.link}/${item.id}`)}>{item.name}</div><i style={{marginLeft:"5px"}} className="fas fa-times-circle" onClick={()=>actions.removeFromFavorites(index)}></i></li>) : <li>add favorites</li>}
 				</ul>
 			</div>
 		</nav>

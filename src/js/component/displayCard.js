@@ -14,7 +14,7 @@ return(
 			<div className="card-body">
 			        <h2 className="card-title">{name}</h2>
 					<Link className="btn btn-primary" to={`/${link}/${id}`}>Click to know more</Link>
-					<button className="btn btn-outline-danger" onClick={()=>{actions.addToFavorites(name,id,link)}}><i className="far fa-heart"></i></button>
+					<button className="btn btn-outline-danger" onClick={()=>{actions.addToFavorites(name,id,link)}}>{actions.favoritesHeart(name)}</button>
             </div>
 			</div>
     </div>
