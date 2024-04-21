@@ -84,8 +84,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			addToFavorites: (name,id,link)=>{
 				const store=getStore()
+				const favlist = store.favorites
 				const fav= {name: name, id: id, link:link }
 				setStore({favorites : [...store.favorites, fav]})
+				
 				console.log(store.favorites)
 				
 			},
@@ -96,14 +98,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				favList.splice(index,1)
 				setStore({favorites: favList})
 			},
-			favoritesHeart: (name)=>{
+			favoritesHeart: (name,id,link)=>{
 				const store= getStore()
+				const actions = getActions()
 				const favlist=store.favorites
 				
-				for(let item of favlist){
-					if(item.name== name){return <i className="fas fa-heart"></i>}
+				for(let item in favlist){
+					if(favlist[item].name == name){return <button className="btn btn-outline-danger" onClick={()=>{actions.removeFromFavorites(item)}}><i className="fas fa-heart"></i></button>}
 					}
-				return <i className="far fa-heart"></i>
+				return <button className="btn btn-outline-danger" onClick={()=>{actions.addToFavorites(name,id,link)}}><i className="far fa-heart"></i></button>
+				
 			}
 
 
